@@ -28,5 +28,6 @@ function submitup(username,password) {
 		}
 //End of checking input words
 		localStorage.setItem(localStorage.length,JSON.stringify([username,password])); //if all input is correct, save the data to localStorage
+		window.location.href="suss.html";
 	}
 }

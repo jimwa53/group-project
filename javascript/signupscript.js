@@ -42,8 +42,9 @@ function submitup(username,password,email) {
 		for (var i=0;i<localStorage.length;i++) {
 			var cuserdata = JSON.parse(localStorage.getItem(i));
 			var cusername = cuserdata[0];
-			if (regusername.value == cusername) {
-				alert("The username is already exists!");
+			var cemail = cuserdata[3];
+			if (regusername.value == cusername || regemail.value == cemail) {
+				alert("The username or email is already exists!");
 				return
 			}
 		}

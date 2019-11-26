@@ -72,7 +72,7 @@ function displayUserList()
         }else
         {
             profilephoto = "images/profilephotofemale.png"
-        };
+        }
 
         var htmlContent =
         "<div class=\"col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2\">"+
@@ -109,7 +109,7 @@ function addUserList(User)
     }else
     {
         profilephoto = "images/profilephotofemale.png"
-    };
+    }
 
     var htmlContent =
     "<div class=\"col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2\">"+
@@ -173,7 +173,7 @@ function saveEditUser()
         UserType:userType.value,
         UserName:userName.value,
         UserPassword:userPassword.value
-    };
+    }
     console.log(userlist);
     localStorage.setItem("userlist",JSON.stringify(userlist));
     window.location.reload();

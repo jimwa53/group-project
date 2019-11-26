@@ -12,25 +12,37 @@
 	<div class="signinupbox">
 		<table>
 			<tr>
-				<th colspan="2">Sign Up</th>
+				<th>Sign Up</th>
 			</tr>
 			<tr>
-				<td>Username:</td><td><input type="text" id="username" placeholder="Username" required></td>
+				<td>First name:<br><input type="text" id="fname" placeholder="First name" required></td>
 			</tr>
 			<tr>
-				<td>Password:</td><td><input type="password" id="password" placeholder="Password" required></td>
+				<td>Last name:<br><input type="text" id="lname" placeholder="Last name" required></td>
+			</tr>
+			<!--<tr>
+				<td>Sex:</td><td style="float:left;"><select id="sex" required><option disabled selected hidden></option><option>Female</option><option>Male</option></select></td>
+			</tr>-->
+			<tr>
+				<td>Email:<br><input type="email" id="email" placeholder="example@email.com" required></td>
 			</tr>
 			<tr>
-				<td colspan="2"><button id="signup" class="signbutton" onClick="signup()">Submit</button></td>
+				<td>Username:<br><input type="text" id="username" placeholder="Username" required></td>
 			</tr>
 			<tr>
-				<td colspan="2">Already have an account?</td>
+				<td>Password:<br><input type="password" id="password" placeholder="Password" required></td>
 			</tr>
-			<tr>
-				<td colspan="2"><a href="signin.html">Click here!</a></td>
+			<tr class="center">
+				<td><button id="signup" class="signbutton" onClick="signup()">Submit</button></td>
 			</tr>
-			<tr>
-				<td colspan="2"><button onclick="location.href='index.html';" class="signbutton">Go Back</button></td>
+			<tr class="center">
+				<td>Already have an account?</td>
+			</tr>
+			<tr class="center">
+				<td><a href="signin.html">Click here!</a></td>
+			</tr>
+			<tr class="center">
+				<td><button onclick="location.href='index.html';" class="signbutton">Go Back</button></td>
 			</tr>
 		</table>
 	</div>

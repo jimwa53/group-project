@@ -6,27 +6,10 @@ var email = document.getElementById("email")
 var userType = document.getElementById("staffType");
 var userName = document.getElementById("username");
 var userPassword = document.getElementById("password");
+     
+var userlist = JSON.parse(localStorage.getItem("userlist"));
+displayUserList();
 
-if (localStorage.getItem("userlist") == null)
-{
-    var userlist = 
-    [
-        {
-            UserId:1,
-            FirstName:"Tai Man",
-            LastName:"Chan",
-            Gender:"Male",
-            UserType:"Hotel Manager",
-            UserName:"admin",
-            UserPassword:"admin"
-        }
-    ];
-    displayUserList();
-}else
-{     
-    var userlist = JSON.parse(localStorage.getItem("userlist"));
-    displayUserList();
-}
 
 
 function createUser()

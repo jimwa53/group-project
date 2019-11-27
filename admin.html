@@ -48,80 +48,18 @@
     <div class="container">
         <h2>User List</h2>
         <div class="row" id="profileList">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3" id="createButton">
-                <img src="images/addButton.png" data-toggle="modal" data-target="#createUser">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-auto mb-auto" id="createButton">
+                <img src="images/addButton.png" onclick="setCreateAttr()" data-toggle="modal" data-target="#User">
             </div>
         </div>
     </div>
-    <!-- Edit Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="editModalLabel">Edit User</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <!--personal information edit part-->
-             <ul>
 
-                <!--first name section-->
-                <li>
-                    <label for="firstname">First Name: </label>
-                    <input type="text" name="fname" id="efirstname" placeholder="Tai Man" required>
-                </li><br/>
-
-                <!--last name section-->
-                <li>
-                    <label for="lastname">Last Name: </label>
-                    <input type="text" name="lname" id="elastname" placeholder="Chan" required>
-                </li><br/>
-
-                <!--gender section-->
-                <li>
-                    Gender:
-                    <!--dropdown option for gender-->
-                    <select name="Gender" id="egender" required>
-                      <option></option>
-                      <option>Male</option>
-                      <option>Female</option>
-                    </select>
-                </li><br/>
-
-                <li>
-                  Type:
-                  <!--dropdown option for User Type-->
-                  <select name="Type" id="estaffType" required>
-                      <option></option>
-                      <option>Housekeeping Staff</option>
-                      <option>Kitchen Staff</option>
-                      <option>Hotel Manager </option>
-                  </select>
-                </li><br>
-
-              
-                <label for="user">Username: </label>
-                <input type="input" name="user" id="euser" required><br>
-                <label for="password">Password: </label>
-                <input type="password" name="passsword" id="epassword" required>
-            </ul>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="saveEditUser()" data-dismiss="modal">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Create User Modal -->
-    <div class="modal fade" id="createUser" tabindex="-1" role="dialog" aria-labelledby="createUserLabel" aria-hidden="true">
+      <!--User Modal -->
+    <div class="modal fade" id="User" tabindex="-1" role="dialog" aria-labelledby="UserLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="createUserLabel">Create User</h5>
+            <h5 class="modal-title" id="UserLabel">Create User</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -154,6 +92,11 @@
                 </li><br/>
 
                 <li>
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" placeholder="example@email.com" required>
+                </li></br>
+
+                <li>
                   Type:
                   <!--dropdown option for User Type-->
                   <select name="Type" id="staffType" required>
@@ -166,14 +109,14 @@
 
               
                 <label for="user">Username: </label>
-                <input type="input" name="user" id="user" required><br>
+                <input type="input" name="user" id="username" required><br>
                 <label for="password">Password: </label>
                 <input type="password" name="passsword" id="password" required>
             </ul>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="createUser()" data-dismiss="modal">Save changes</button>
+            <button type="button" class="btn btn-secondary" onclick="clearData()" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="confirmAddUser">Save changes</button>
           </div>
         </div>
       </div>

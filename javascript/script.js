@@ -14,10 +14,8 @@ if (localStorage.getItem("userlist") == null)
             UserPassword:"admin"
         }
     ];
-    var userlist = JSON.parse(localStorage.getItem("userlist"))
-    displayUserList();
+    localStorage.setItem("userlist",JSON.stringify(userlist))
 }else
 {     
     var userlist = JSON.parse(localStorage.getItem("userlist"));
-    displayUserList();
 }

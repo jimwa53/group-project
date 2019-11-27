@@ -54,7 +54,7 @@ function submitup() {
 				userlist.push(UserInfo);
 				console.log(userlist);
 				localStorage.setItem("userlist",JSON.stringify(userlist));
-				$(location).attr('href', 'http://stackoverflow.com');		
+				$(location).attr('href', 'customer.html');
 		}
 
 //End of checking input words

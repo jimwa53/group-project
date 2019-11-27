@@ -18,9 +18,84 @@ if (localStorage.getItem("userlist") == null)
     var userlist = JSON.parse(localStorage.getItem("userlist"));
 }
 
-if (sessionStorage.getItem("logineduser") !== null);
+
+if (localStorage.getItem("menulist") == null)
 {
-    var signinusername = sessionStorage.getItem("logineduser");
-    console.log(signinusername);
-    document.getElementById("customer").innerHTML = signinusername;
+    var menulist = 
+    [
+        {
+            MealId:0,
+            MealName:"bolognese spaghetti",
+            MealImg:"bolognese.jpg",
+            Price:10,
+            OnMenu:false
+        },
+        {
+            MealId:1,
+            MealName:"Carbonara spaghetti",
+            MealImg:"Carbonara.jpg",
+            Price:10,
+            OnMenu:false
+        },
+        {
+            MealId:2,
+            MealName:"Borscht",
+            MealImg:"Borscht.jpg",
+            Price:5,
+            OnMenu:false
+        },
+        {
+            MealId:3,
+            MealName:"creamsoup",
+            MealImg:"creamsoup.jpg",
+            Price:5,
+            OnMenu:false
+        },
+        {
+            MealId:4,
+            MealName:"Vegetable Salad",
+            MealImg:"VegetableSalad.jpg",
+            Price:4,
+            OnMenu:false
+        },
+        {
+            MealId:5,
+            MealName:"Chicken Salad",
+            MealImg:"ChickenSalad.jpg",
+            Price:4,
+            OnMenu:false
+        },
+        {
+            MealId:6,
+            MealName:"paella",
+            MealImg:"paella.jpg",
+            Price:15,
+            OnMenu:false
+        },
+        {
+            MealId:7,
+            MealName:"Risotto",
+            MealImg:"Risotto.jpg",
+            Price:15,
+            OnMenu:false
+        },
+        {
+            MealId:8,
+            MealName:"lamb rack",
+            MealImg:"lambrack.jpg",
+            Price:20,
+            OnMenu:false
+        },
+        {
+            MealId:9,
+            MealName:"steak",
+            MealImg:"steak.jpg",
+            Price:20,
+            OnMenu:false
+        }
+    ];
+    localStorage.setItem("menulist",JSON.stringify(menulist))
+}else
+{     
+    var menulist = JSON.parse(localStorage.getItem("menulist"));
 }

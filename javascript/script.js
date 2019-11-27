@@ -39,14 +39,14 @@ if (localStorage.getItem("menulist") == null)
         },
         {
             MealId:2,
-            MealName:"Borscht",
-            MealImg:"Borscht.jpg",
-            Price:5,
+            MealName:"Rack of Lamp",
+            MealImg:"lambrack.jpg",
+            Price:20,
             OnMenu:false
         },
         {
             MealId:3,
-            MealName:"creamsoup",
+            MealName:"cream soup",
             MealImg:"creamsoup.jpg",
             Price:5,
             OnMenu:false
@@ -81,9 +81,9 @@ if (localStorage.getItem("menulist") == null)
         },
         {
             MealId:8,
-            MealName:"lamb rack",
-            MealImg:"lambrack.jpg",
-            Price:20,
+            MealName:"Borscht",
+            MealImg:"Borscht.jpg",
+            Price:5,
             OnMenu:false
         },
         {

@@ -1,45 +1,17 @@
 var editingUser;
 
-var Menulist = JSON.parse(localStorage.getItem("menulist"));
+var menulist = JSON.parse(localStorage.getItem("menulist"));
 displayMenulist();
-
-function createUser()
-{
-    var ready = isEmpty()
-    if (ready == true)
-    {
-        var UserInfo = {
-            UserId:(userlist.length+1),
-            FirstName:firstName.value,
-            LastName:lastName.value,
-            Gender:gender.value,
-            Email:email.value,
-            UserType:userType.value,
-            UserName:userName.value,
-            UserPassword:userPassword.value
-        };
-    
-        userlist.push(UserInfo)
-        console.log(userlist);
-        addUserList(userlist[(userlist.length-1)]);
-        localStorage.setItem("userlist",JSON.stringify(userlist))
-        
-        $("#confirmAddUser").attr('data-dismiss', "modal");
-    
-        clearData();
-    }
-}
 
 function displayMenulist()
 {
-    Menulist.forEach(function(Menu){
-        var mealId = Menu.mealId;
+    menulist.forEach(function(Menu){
+        var mealId = Menu.MealId;
         var mealName = Menu.MealName;
         var price = Menu.Price;
         var onMenu = Menu.OnMenu;
         var mealPhoto;
         mealPhoto = "images/menu/"+Menu.MealImg;
-        console.log(mealPhoto)
 
         var htmlContent =
         "<div class=\"col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2\">"+
@@ -48,8 +20,9 @@ function displayMenulist()
                 "<div class=\"card-body\">"+
                     "<h4 class=\"card-title\">"+mealName+"</h4>"+
                     "<p class=\"card-text\">price: $"+price+"</p>"+
+                    "<p class=\"card-text\"><b> available: "+onMenu+"</b></p>"+
                     "<button type=\"button\""+"onclick=\"editMenu("+mealId+")\""+"class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#Menu\">"+
-                        "Edit"+
+                        "Put on menu"+
                     "</button>"+
                 "</div>"+
             "</div>"
@@ -59,46 +32,22 @@ function displayMenulist()
             $("#customerTitle").after(htmlContent);
         }else
         {
-            console.log(htmlContent)
             $("#createButton").before(htmlContent);
         }
     })
 }
 
-function editMenu(UserString)
+
+function editMenu(inputId)
 {
-    $("#confirmAddUser").removeAttr("onclick");
-    $("#username").removeAttr("onfocusout");
-    $("#username").attr("disabled","true");
-    $("#confirmAddUser").attr("onclick","saveEditUser()");
-    $("#confirmAddUser").removeAttr("data-dismiss")
-
-
-    userlist.forEach(function(User){
-        console.log(User.UserId)
-        if(UserString == User.UserId)
-        {
-            editingUser = User.UserId;
-            firstName.value = User.FirstName;
-            lastName.value = User.LastName;
-            gender.value = User.Gender;
-            email.value = User.Email;
-            userType.value = User.UserType;
-            userName.value = User.UserName;
-            userPassword.value = User.UserPassword;
-            return;
-        }
-    })
-
-    if(userType.value == "customer")
-    {
-        $("#staffType").attr("disabled","true")
-    }else
-    {
-        $("#staffType").removeAttr("disabled")
-    }
-    console.log(UserString)
+    console.log(menulist[inputId].onMenu);
+    if (menulist[inputId].onMenu)
+        menulist[inputId].onMenu = false;
+    else
+        menulist[inputId].onMenu = true;
+    displayMenulist()
 }
+
 
 function saveEditUser()
 { 

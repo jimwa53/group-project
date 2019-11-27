@@ -54,7 +54,7 @@ function submitup() {
 				userlist.push(UserInfo);
 				console.log(userlist);
 				localStorage.setItem("userlist",JSON.stringify(userlist));
-				$(location).attr('href', 'http://stackoverflow.com');		
+				$(location).attr('href', 'suss.html');		
 		}
 
 //End of checking input words
@@ -80,21 +80,4 @@ function checkUsername()
     })
 }
 
-function checkUsername()
-{
-    $("#username").removeClass()
-    $("#signup").removeAttr("disabled")
-    userlist.forEach(function(User){
-        if(regusername.value == User.UserName)
-        {
-            $("#username").addClass("border border-danger")
-            regusername.value = "";
-            $("#signup").attr("disabled","true")
-            return alert("The User name has been used")
-        }else
-        {
-            $("#username").addClass("border border-success") 
-        }
-    })
-}
 

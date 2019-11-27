@@ -22,6 +22,7 @@ function createUser()
             FirstName:firstName.value,
             LastName:lastName.value,
             Gender:gender.value,
+            Email:email.value,
             UserType:userType.value,
             UserName:userName.value,
             UserPassword:userPassword.value
@@ -71,9 +72,14 @@ function displayUserList()
                 "</div>"+
             "</div>"
         "</div>"
-
-        console.log(htmlContent)
-        $("#createButton").before(htmlContent);
+        if (userType == "customer")
+        {
+            $("#customerTitle").after(htmlContent);
+        }else
+        {
+            console.log(htmlContent)
+            $("#createButton").before(htmlContent);
+        }
     })
 }
 
@@ -109,8 +115,14 @@ function addUserList(User)
             "</div>"
         "</div>"
 
-    console.log(htmlContent)
-    $("#createButton").before(htmlContent);
+    if (userType == "customer")
+    {
+        $("#customerTitle").after(htmlContent);
+    }else
+    {
+        console.log(htmlContent)
+        $("#createButton").before(htmlContent);
+    }
 }
 
 function editUser(UserString)
@@ -121,6 +133,7 @@ function editUser(UserString)
     $("#confirmAddUser").attr("onclick","saveEditUser()");
     $("#confirmAddUser").removeAttr("data-dismiss")
 
+
     userlist.forEach(function(User){
         console.log(User.UserId)
         if(UserString == User.UserId)
@@ -129,11 +142,21 @@ function editUser(UserString)
             firstName.value = User.FirstName;
             lastName.value = User.LastName;
             gender.value = User.Gender;
+            email.value = User.Email;
             userType.value = User.UserType;
             userName.value = User.UserName;
             userPassword.value = User.UserPassword;
+            return;
         }
     })
+
+    if(userType.value == "customer")
+    {
+        $("#staffType").attr("disabled","true")
+    }else
+    {
+        $("#staffType").removeAttr("disabled")
+    }
     console.log(UserString)
 }
 
@@ -149,7 +172,8 @@ function saveEditUser()
             UserId:editingUser,
             FirstName:firstName.value,
             LastName:lastName.value,               
-            Gender:gender.value,              
+            Gender:gender.value,  
+            Email:email.value,
             UserType:userType.value,
             UserName:userName.value,
             UserPassword:userPassword.value
@@ -230,6 +254,7 @@ function clearData()
     firstName.value = "";
     lastName.value = "";
     gender.value = "";
+    email.value=""
     userType.value = "";
     userName.value = "";
     userPassword.value = "";
@@ -261,4 +286,3 @@ function checkUsername()
         }
     })
 }
-

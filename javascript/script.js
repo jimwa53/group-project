@@ -1,5 +1,3 @@
-// var signinusername = sessionStorage.getItem("logineduser");
-// document.getElementById("customer").innerHTML = signinusername;
 if (localStorage.getItem("userlist") == null)
 {
     var userlist = 
@@ -18,4 +16,11 @@ if (localStorage.getItem("userlist") == null)
 }else
 {     
     var userlist = JSON.parse(localStorage.getItem("userlist"));
+}
+
+if (sessionStorage.getItem("logineduser") !== null);
+{
+    var signinusername = sessionStorage.getItem("logineduser");
+    console.log(signinusername);
+    document.getElementById("customer").innerHTML = signinusername;
 }

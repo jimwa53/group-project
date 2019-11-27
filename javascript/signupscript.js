@@ -55,6 +55,7 @@ function submitup() {
 				console.log(userlist);
 				localStorage.setItem("userlist",JSON.stringify(userlist));
 				$(location).attr('href', 'suss.html');		
+
 		}
 
 //End of checking input words

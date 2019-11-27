@@ -65,48 +65,6 @@ function displayMenulist()
     })
 }
 
-function addUserList(User)
-{
-    var firstName = User.FirstName;
-    var lastName = User.LastName;
-    var gender = User.Gender;
-    var userType = User.UserType;
-    var userName =User.UserName;
-    var profilephoto;
-    var userNumber = userlist.indexOf(User)+1;
-
-    if (gender == "Male")
-    {
-        profilephoto = "images/profilephotomale.png"
-    }else
-    {
-        profilephoto = "images/profilephotofemale.png"
-    }
-
-    var htmlContent =
-    "<div class=\"col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2\">"+
-            "<div class=\"card\">"+
-                "<img class=\"card-img-top\" src=\""+profilephoto+"\" alt=\"Card image\" style=\"width:100%\">"+
-                "<div class=\"card-body\">"+
-                    "<h4 class=\"card-title\">"+firstName+" "+lastName+"</h4>"+
-                    "<p class=\"card-text\">"+userType+"</p>"+
-                    "<button type=\"button\""+"onclick=\"editUser("+userNumber+")\""+"class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#User\">"+
-                        "Edit"+
-                    "</button>"+
-                "</div>"+
-            "</div>"
-        "</div>"
-
-    if (userType == "customer")
-    {
-        $("#customerTitle").after(htmlContent);
-    }else
-    {
-        console.log(htmlContent)
-        $("#createButton").before(htmlContent);
-    }
-}
-
 function editMenu(UserString)
 {
     $("#confirmAddUser").removeAttr("onclick");

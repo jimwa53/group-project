@@ -33,6 +33,7 @@ function createUser()
 function displayMenulist()
 {
     Menulist.forEach(function(Menu){
+        var mealId = Menu.mealId;
         var mealName = Menu.MealName;
         var price = Menu.Price;
         var onMenu = Menu.OnMenu;
@@ -43,13 +44,13 @@ function displayMenulist()
         var htmlContent =
         "<div class=\"col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2\">"+
             "<div class=\"card\">"+
-                "<img class=\"card-img-top\" src=\""+mealPhoto+"\" alt=\"Card image\" style=\"height:100%\">"+
+                "<img class=\"card-img-top\" src=\""+mealPhoto+"\" alt=\"Card image\" style=\"height:150px\">"+
                 "<div class=\"card-body\">"+
                     "<h4 class=\"card-title\">"+mealName+"</h4>"+
                     "<p class=\"card-text\">price: $"+price+"</p>"+
-//                    "<button type=\"button\""+"onclick=\"editUser("+userNumber+")\""+"class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#User\">"+
-//                        "Edit"+
-//                    "</button>"+
+                    "<button type=\"button\""+"onclick=\"editMenu("+mealId+")\""+"class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#Menu\">"+
+                        "Edit"+
+                    "</button>"+
                 "</div>"+
             "</div>"
         "</div>"
@@ -106,7 +107,7 @@ function addUserList(User)
     }
 }
 
-function editUser(UserString)
+function editMenu(UserString)
 {
     $("#confirmAddUser").removeAttr("onclick");
     $("#username").removeAttr("onfocusout");

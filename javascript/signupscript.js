@@ -7,8 +7,6 @@ var regesex = document.getElementById("sex");
 var regfname = document.getElementById("fname");
 var reglname = document.getElementById("lname")
 
-//function signup(){submitup(regusername,regpassword,regesex,regemail,regfname,reglname)};
-
 function submitup() {
 //Start of checking input words
 	var check = /^[a-zA-Z0-9]*$/;
@@ -42,28 +40,61 @@ function submitup() {
 				return alert("The password allow only alphanumeric characters!");
 			case (resultuser && resultpass && !resultemail):
 				return alert("Please enter correct Email!");
+			default:
+				var UserInfo = {
+					UserId:(userlist.length+1),
+					FirstName:regfname.value,
+					LastName:reglname.value,
+					Gender:regesex.value,
+					Email:regemail.value,
+					UserType:"customer",
+					UserName:regusername.value,
+					UserPassword:regpassword.value
+				};
+				userlist.push(UserInfo);
+				console.log(userlist);
+				localStorage.setItem("userlist",JSON.stringify(userlist));
+				$(location).attr('href', 'http://stackoverflow.com');		
 		}
-		//The end of checking the validation
-		// for (var i=0;i<localStorage.length;i++) {
-		// 	var cuserdata = JSON.parse(localStorage.getItem("userlist"));
-		// 	if (regusername.value == cusername || regemail.value == cemail) {
-		// 		alert("The username or email is already exists!");
-		// 		return
-		// 	}
-		// }
+
 //End of checking input words
-		var UserInfo = {
-			UserId:(userlist.length+1),
-			FirstName:regfname.value,
-			LastName:reglname.value,
-			Gender:regesex.value,
-			UserType:"customer",
-			UserName:regusername.value,
-			UserPassword:regpassword.value
-		};
-		userlist.push(UserInfo);
-		console.log(userlist);
-		localStorage.setItem("userlist",JSON.stringify(userlist)); //if all input is correct, save the data to localStorage
-		window.location.href="suss.html";
+		 //if all input is correct, save the data to localStorage
 	}
 }
+
+function checkUsername()
+{
+    $("#username").removeClass()
+    $("#signup").removeAttr("disabled")
+    userlist.forEach(function(User){
+        if(regusername.value == User.UserName)
+        {
+            $("#username").addClass("border border-danger")
+            regusername.value = "";
+            $("#signup").attr("disabled","true")
+            return alert("The User name has been used")
+        }else
+        {
+            $("#username").addClass("border border-success") 
+        }
+    })
+}
+
+function checkUsername()
+{
+    $("#username").removeClass()
+    $("#signup").removeAttr("disabled")
+    userlist.forEach(function(User){
+        if(regusername.value == User.UserName)
+        {
+            $("#username").addClass("border border-danger")
+            regusername.value = "";
+            $("#signup").attr("disabled","true")
+            return alert("The User name has been used")
+        }else
+        {
+            $("#username").addClass("border border-success") 
+        }
+    })
+}
+

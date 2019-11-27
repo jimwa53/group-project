@@ -15,9 +15,7 @@ if (localStorage.getItem("userlist") == null)
         }
     ];
     var userlist = JSON.parse(localStorage.getItem("userlist"))
-    displayUserList();
 }else
 {     
     var userlist = JSON.parse(localStorage.getItem("userlist"));
-    displayUserList();
 }

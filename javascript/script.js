@@ -1,3 +1,41 @@
+if (localStorage.getItem("roomlist") == null) {
+	var roomlist = 
+		[
+			{
+				UserId:"",
+				roomId:"r1",
+				indate:"",
+				outdate:""
+			},
+			{
+				UserId:"",
+				roomId:"r2",
+				indate:"",
+				outdate:""
+			},
+			{
+				UserId:"",
+				roomId:"r3",
+				indate:"",
+				outdate:""
+			},
+			{
+				UserId:"",
+				roomId:"r4",
+				indate:"",
+				outdate:""
+			},
+			{
+				UserId:"",
+				roomId:"r5",
+				indate:"",
+				outdate:""
+			}
+		];
+		localStorage.setItem("roomlist",JSON.stringify(roomlist));
+} else {
+	var roomlist = JSON.parse(localStorage.getItem("roomlist"));
+}
 if (localStorage.getItem("userlist") == null)
 {
     var userlist = 
@@ -17,7 +55,6 @@ if (localStorage.getItem("userlist") == null)
 {     
     var userlist = JSON.parse(localStorage.getItem("userlist"));
 }
-
 
 if (localStorage.getItem("menulist") == null)
 {
@@ -101,21 +138,24 @@ if (localStorage.getItem("menulist") == null)
 }
 
 
-var signinusername = sessionStorage.getItem("logineduser");
-console.log(signinusername);
-document.getElementById("customer").innerHTML = signinusername;
+	var signinusername = sessionStorage.getItem("logineduser");
+if (sessionStorage.getItem("logineduser")==null) {
+	document.getElementById("customer").innerHTML = "<a href='signin.html'>Sign In</a><a href='signup.html' style='margin-left: 10px;''>Sign Up</a>"
+} else if (signinusername==signinusername){
+	document.getElementById("customer").innerHTML = signinusername;
+}
 
 
 var room1 = 
-	"<img src=\"images/room1.jpg\" style=\"width:50%\"><br><b>Room1 HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p><button onClick=checkined()>Book now!</button>";
+	"<img src=\"images/room1.jpg\" style=\"width:50%\"><br><b><span id='r1' name ='room1'>Room1</span> HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p><button onClick=checkined('r1')>Book now!</button>";
 var room2 = 
-	"<img src=\"images/room2.jpg\" style=\"width:50%\"><br><b>Room2 HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p>";
+	"<img src=\"images/room2.jpg\" style=\"width:50%\"><br><b><span id='r2' name ='room2'>Room2</span> HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p><button onClick=checkined('r2')>Book now!</button>";
 var room3 = 
-	"<img src=\"images/room3.jpg\" style=\"width:50%\"><br><b>Room3 HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p>";
+	"<img src=\"images/room3.jpg\" style=\"width:50%\"><br><b><span id='r3' name ='room3'>Room3</span> HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p><button onClick=checkined('r3')>Book now!</button>";
 var room4 = 
-	"<img src=\"images/room4.jpg\" style=\"width:50%\"><br><b>Room4 HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p>";
+	"<img src=\"images/room4.jpg\" style=\"width:50%\"><br><b><span id='r4' name ='room4'>Room4</span> HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p><button onClick=checkined('r4')>Book now!</button>";
 var room5 = 
-	"<img src=\"images/room5.jpg\" style=\"width:50%\"><br><b>Room5 HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p>";
+	"<img src=\"images/room5.jpg\" style=\"width:50%\"><br><b><span id='r5' name ='room5'>Room5</span> HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p><button onClick=checkined('r5')>Book now!</button>";
 
 function layout1() {
 	document.getElementById("room").innerHTML=room1;
@@ -133,7 +173,9 @@ function layout5() {
 	document.getElementById("room").innerHTML=room5;
 }
 
-function checkined() {
+
+
+function checkined(roomid) {
 	if (sessionStorage.getItem("logineduser")==null) {
 		var islogined = confirm("Please sign in first!");
 		if (islogined==true) {
@@ -143,6 +185,25 @@ function checkined() {
 	} else {
 		var sure = confirm("Sure?");
 		if (sure==true) {
+			rm = document.getElementById(roomid).id;
+			/*for(var i=0;i<roomlist.length;i++) {
+				if(roomlist.object.roomId==rm) {
+					roomlist.object.UserId = signinusername;
+				}
+			}*/
+			roomlist.forEach(function(obj) {
+				if(obj.roomId==rm) {
+					obj.UserId = signinusername;
+					var indexofnum = roomlist.indexOf(obj);
+					roomlist[indexofnum] = {
+												UserId:signinusername,
+												roomId:rm,
+												indate:"",
+												outdate:""
+											}
+					localStorage.setItem("roomlist",JSON.stringify(roomlist));
+				}
+			})
 			window.location.href="confirmroom.html";
 		}
 	}

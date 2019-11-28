@@ -8,8 +8,8 @@ var userName = document.getElementById("username");
 var userPassword = document.getElementById("password");
      
 var userlist = JSON.parse(localStorage.getItem("userlist"));
+var roomlist = JSON.parse(localStorage.getItem("roomlist"));
 displayUserList();
-
 
 
 function createUser()
@@ -77,7 +77,6 @@ function displayUserList()
             $("#customerTitle").after(htmlContent);
         }else
         {
-            console.log(htmlContent)
             $("#createButton").before(htmlContent);
         }
     })
@@ -254,7 +253,7 @@ function clearData()
     firstName.value = "";
     lastName.value = "";
     gender.value = "";
-    email.value=""
+    email.value="";
     userType.value = "";
     userName.value = "";
     userPassword.value = "";
@@ -268,6 +267,65 @@ function setCreateAttr()
     $("#username").removeAttr("disabled");
     $("#username").attr("onfocusout","checkUsername()");
 }
+
+function setRoomAttr()
+{
+    var roomnow = 0;
+    document.getElementById("totalRoom").innerHTML = "There are total " + roomlist.length + " room now.";
+    for (var i = 0; i < roomlist.length; i++)
+    {
+        if (roomlist[i].UserId == "")
+        {
+            roomnow++;
+        }
+    }
+    document.getElementById("roomStatus").innerHTML = "There are still " + roomnow + " available room now.";
+    $("#confirmAddRoom").removeAttr("onclick");
+    $("#confirmAddRoom").attr("onclick","createRoom()");
+    $("#confirmAddRoom").removeAttr("data-dismiss");
+}
+
+function createRoom()
+{
+  
+    for (var i = 0; i < 2; i++)
+    {
+        var RoomInfo = 
+        {
+            UserId:"",
+            roomId:"r"+(roomlist.length+1),
+            indate:"",
+            outdate:"",
+            mealorder:"",
+            Price:"",
+            roomStatus:"",
+            roomType:"King"
+        };
+        
+        roomlist.push(RoomInfo)
+        localStorage.setItem("roomlist",JSON.stringify(roomlist))
+    }
+    for (var i = 0; i < 3; i++)
+    {
+        var RoomInfo = 
+        {
+            UserId:"",
+            roomId:"r"+(roomlist.length+1),
+            indate:"",
+            outdate:"",
+            mealorder:"",
+            Price:"",
+            roomStatus:"",
+            roomType:"Double"
+        };
+        
+        roomlist.push(RoomInfo)
+        localStorage.setItem("roomlist",JSON.stringify(roomlist))
+    }
+    $("#confirmAddRoom").attr('data-dismiss', "modal");
+    clearData();
+}
+
 
 function checkUsername()
 {

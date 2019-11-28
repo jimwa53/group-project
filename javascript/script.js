@@ -5,31 +5,41 @@ if (localStorage.getItem("roomlist") == null) {
 				UserId:"",
 				roomId:"r1",
 				indate:"",
-				outdate:""
+                outdate:"",
+                mealorder:"",
+                Price:0
 			},
 			{
 				UserId:"",
 				roomId:"r2",
 				indate:"",
-				outdate:""
+                outdate:"",
+                mealorder:"",
+                Price:0
 			},
 			{
 				UserId:"",
 				roomId:"r3",
 				indate:"",
-				outdate:""
+                outdate:"",
+                mealorder:"",
+                Price:0
 			},
 			{
 				UserId:"",
 				roomId:"r4",
 				indate:"",
-				outdate:""
+                outdate:"",
+                mealorder:"",
+                Price:0
 			},
 			{
 				UserId:"",
 				roomId:"r5",
 				indate:"",
-				outdate:""
+                outdate:"",
+                mealorder:"",
+                Price:0
 			}
 		];
 		localStorage.setItem("roomlist",JSON.stringify(roomlist));
@@ -138,11 +148,13 @@ if (localStorage.getItem("menulist") == null)
 }
 
 
-	var signinusername = sessionStorage.getItem("logineduser");
+	
 if (sessionStorage.getItem("logineduser")==null) {
 	document.getElementById("customer").innerHTML = "<a href='signin.html'>Sign In</a><a href='signup.html' style='margin-left: 10px;''>Sign Up</a>"
-} else if (signinusername==signinusername){
-	document.getElementById("customer").innerHTML = signinusername;
+} else
+{
+    var signinusername = sessionStorage.getItem("logineduser"); 
+	$("customer").append(signinusername) ;
 }
 
 
@@ -202,7 +214,9 @@ function checkined(roomid) {
 												UserId:signinusername,
 												roomId:rm,
 												indate:checkInDate.value,
-												outdate:checkOutDate.value,
+                                                outdate:checkOutDate.value,
+                                                mealorder:"",
+                                                Price:""
 											}
 					localStorage.setItem("roomlist",JSON.stringify(roomlist));
 				}

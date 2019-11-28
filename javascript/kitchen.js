@@ -1,5 +1,6 @@
 var menulist = JSON.parse(localStorage.getItem("menulist"));
 displayMenulist();
+<<<<<<< HEAD
 var roomlist = JSON.parse(localStorage.getItem("roomlist"));
 if (localStorage.getItem("customerlist")== null)
 {
@@ -8,6 +9,9 @@ if (localStorage.getItem("customerlist")== null)
 {
     var customerlist = JSON.parse(localStorage.getItem("customerlist"));
 }
+=======
+var orderlist = JSON.parse(localStorage.getItem("roomlist"));
+>>>>>>> 6a09cb74425e3b9c3ea95847494412a75c2149aa
 displayOrderlist();
 
 function displayMenulist()
@@ -27,15 +31,60 @@ function displayMenulist()
                 "<div class=\"card-body\">"+
                     "<h4 class=\"card-title\">"+mealName+"</h4>"+
                     "<p class=\"card-text\">price: $"+price+"</p>"+
+<<<<<<< HEAD
+=======
+                    "<p class=\"card-text\"><b> On Menu: "+onMenu+"</b></p>"+
+>>>>>>> 6a09cb74425e3b9c3ea95847494412a75c2149aa
                     "<button type=\"button\""+"onclick=\"editMenu("+mealId+")\""+"class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#Menu\">"+
                         "Change menu"+
                     "</button>"+
                 "</div>"+
             "</div>"
         "</div>"
+<<<<<<< HEAD
 
             $("#mealcard").before(htmlContent);
         
+=======
+        if (onMenu)
+        {
+            $("#menucard").after(htmlContent);
+        }else
+        {
+            $("#mealcard").before(htmlContent);
+        }
+    })
+}
+
+function displayOrderlist()
+{
+    orderlist.forEach(function(Order){
+        var mealOrderedName = Order.mealordered.MealName;
+        var room = Order.roomId;
+        var mealPhoto;
+        mealPhoto = "images/menu/"+Order.mealordered.MealImg;
+
+        var htmlContent =
+        "<div class=\"col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2\">"+
+            "<div class=\"card\">"+
+                "<img class=\"card-img-top\" src=\""+mealPhoto+"\" alt=\"Card image\" style=\"height:150px\">"+
+                "<div class=\"card-body\">"+
+                    "<h4 class=\"card-title\">"+mealOrderedName+"</h4>"+
+                    "<p class=\"card-text\"><b> Order from: "+room+"</b></p>"+
+                    "<button type=\"button\""+"onclick=\"editMenu("+mealId+")\""+"class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#Menu\">"+
+                        "Change menu"+
+                    "</button>"+
+                "</div>"+
+            "</div>"
+        "</div>"
+        if (onMenu)
+        {
+            $("#menucard").after(htmlContent);
+        }else
+        {
+            $("#mealcard").before(htmlContent);
+        }
+>>>>>>> 6a09cb74425e3b9c3ea95847494412a75c2149aa
     })
 }
 
@@ -136,6 +185,12 @@ function delMenu(inputId)
              window.location.reload();
          }   
     }
+<<<<<<< HEAD
+=======
+    console.log(menulist);
+    localStorage.setItem("menulist",JSON.stringify(menulist));
+    window.location.reload();
+>>>>>>> 6a09cb74425e3b9c3ea95847494412a75c2149aa
 }
 
 function orderMenu(inputId)

@@ -184,24 +184,19 @@ function layout5() {
 
 
 function checkined(roomid) {
-    var checkInDate = document.getElementById("checkin");
-    var checkOutDate = document.getElementById("checkout");
-
+	
 	if (sessionStorage.getItem("logineduser")==null) {
 		var islogined = confirm("Please sign in first!");
 		if (islogined==true) {
 			window.location.href="signin.html";
 			sessionStorage.setItem("url",document.location);
 		}
-	} else {
+	} else if(checkInDate.value == "" || checkOutDate.value == ""){
+		return alert("Please choose you booking date");
+	}else{
 		var sure = confirm("Sure?");
 		if (sure==true) {
 			rm = document.getElementById(roomid).id;
-			/*for(var i=0;i<roomlist.length;i++) {
-				if(roomlist.object.roomId==rm) {
-					roomlist.object.UserId = signinusername;
-				}
-			}*/
 			roomlist.forEach(function(obj) {
 				if(obj.roomId==rm) {
 					obj.UserId = signinusername;

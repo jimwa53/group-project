@@ -22,13 +22,11 @@ function searchBooking(){
         return alert("Please choose you booking date");
     }else if(compare($("#checkin").val(),$("#checkout").val()) == -1){
 		alert("The checkout day should be greater than "+$("#checkin").val());
-    }  
+    }
 }
-
 function bookcheck(r) {
-	console.log(r);
-    date1 = moment($("#checkin").val(),"YYYY-MM-DD");
-    date2 = moment($("#checkout").val(),"YYYY-MM-DD");
+	date1 = moment($("#checkin").val(),"YYYY-MM-DD");
+	date2 = moment($("#checkout").val(),"YYYY-MM-DD");
 				if(moment(roomlist[r-1].indate).isBetween(moment(roomlist[r-1].indate),moment(roomlist[r-1].outdate), null, '[]'))
 				{
 					var room = roomlist[r-1].roomId;

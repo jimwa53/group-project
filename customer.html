@@ -54,11 +54,37 @@
 					</div>
 				</div>
 				<div class="col-12" >
-					
+					<div class="col-12 bg-light" id="alertCheckin">
+						<div class="row">
+							<div class="col-9 p-1">
+							<b>Your Booking is confirmed</b></br>
+							You can check in at <div id="checkInDate"></div>
+							</div>
+							<div class="col-3 p-2">
+								<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Check Booking</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="bookingRecord" class="collapse">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+						<img id="roomImg"/>
+					</div>
+					<div class="col-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+						<div id="roomId"></div>
+						<div id="cutomerName"></div>
+						<div id="dateCheckIn"></div>
+						<div id="dueDate"></div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</p>
 <script type="text/javascript" src="javascript/script.js"></script>
+<script type="text/javascript" src="javascript/customer.js"></script>
 </body>
 </html>

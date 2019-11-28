@@ -1,9 +1,9 @@
 var loginusername = document.getElementById("loginusername");
 var loginpassword = document.getElementById("loginpassword");
 
-
+//var patt = /booking.html/i
+//var test = sessionStorage.getItem("url").match(patt);
 document.getElementById("submit").onclick = function(){submitin(loginusername.value,loginpassword.value)};
-
 function submitin(nameInput,passInput) {
 	var iscorrect;
 	if (loginusername.value == "" || loginpassword.value == "") {
@@ -14,8 +14,17 @@ function submitin(nameInput,passInput) {
 			if (userlist[i].UserName == nameInput && userlist[i].UserPassword == passInput) 
 			{
 				sessionStorage.setItem("logineduser",userlist[i].UserName);
-				if (userlist[i].UserType == "customer")
-					return window.location.href="customer.html";
+				if (userlist[i].UserType == "customer") {
+					//return window.location.href="customer.html";
+					
+					var patt = new RegExp("booking.html");
+					if (patt.test(sessionStorage.getItem("url"))) {
+						sessionStorage.setItem("alertsuss","true");
+						return window.history.go(-2);
+					} else {
+						return window.location.href="customer.html";
+					}
+				}
 
 				else if (userlist[i].UserType == "Kitchen Staff")
 					return window.location.href="staff.html";

@@ -1,37 +1,37 @@
+var checkInDate = document.getElementById("checkin");
+var checkOutDate = document.getElementById("checkout");
 
-var checkInDate = document.getElementById("checkIn");
-    var checkOutDate = document.getElementById("checkIn");
+
+    
+function searchBooking(){
+
+    date1 = moment($("#checkin").val(),"YYYY-MM-DD");
+    date2 = moment($("#checkout").val(),"YYYY-MM-DD");
+	var timeover;
+	function compare(dateTimeA, dateTimeB) {
+	if (date1 < date2) {
+		return timeover = 1;
+	} else if (date1 > date2) {
+		return timeover = -1;
+	} else {
+		return timeover = 0;
+	}
+	}
     if(checkInDate.value == "" || checkOutDate.value == "")
     {
-        return alert("Please")
+        return alert("Please choose you booking date");
+    }else if(compare($("#checkin").val(),$("#checkout").val()) == -1){
+		alert("The checkout day should be greater than "+$("#checkin").val());
     }
-function checkined(roomid) {
-    if (sessionStorage.getItem("logineduser")==null) {
-        var islogined = confirm("Please sign in first!");
-        if (islogined==true) {
-            window.location.href="signin.html";
-            sessionStorage.setItem("url",document.location);
-        }
-    }
-    else
-    {
-        var sure = confirm("Sure?");
-        if (sure==true) {
-            rm = document.getElementById(roomid).id;
-            roomlist.forEach(function(obj) {
-                if(obj.roomId==rm) {
-                    obj.UserId = signinusername;
-                    var indexofnum = roomlist.indexOf(obj);
-                    roomlist[indexofnum] = {
-                                                UserId:signinusername,
-                                                roomId:rm,
-                                                indate:"",
-                                                outdate:""
-                                            }
-                    localStorage.setItem("roomlist",JSON.stringify(roomlist));
-                }
-            })
-            window.location.href="confirmroom.html";
-       }
-    }
+}
+function bookcheck(r) {
+	date1 = moment($("#checkin").val(),"YYYY-MM-DD");
+	date2 = moment($("#checkout").val(),"YYYY-MM-DD");
+				if(moment(roomlist[r-1].indate).isBetween(moment(roomlist[r-1].indate),moment(roomlist[r-1].outdate), null, '[]'))
+				{
+					var room = roomlist[r-1].roomId;
+
+					alert("The room "+(r)+" is booked")
+					document.getElementById(r+String(r)).setAttribute("disabled", "");
+				}
 }

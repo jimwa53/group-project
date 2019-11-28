@@ -97,5 +97,5 @@ if (localStorage.getItem("menulist") == null)
     localStorage.setItem("menulist",JSON.stringify(menulist))
 }else
 {     
-    var menulist = JSON.parse(localStorage.getItem("menulist"));
+    menulist = JSON.parse(localStorage.getItem("menulist"));
 }

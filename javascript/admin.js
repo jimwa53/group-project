@@ -287,7 +287,7 @@ function setRoomAttr()
 
 function createRoom()
 {
-    for (var i = 0; i < 5; i++)
+    for (var i = 0; i < 2; i++)
     {
         var RoomInfo = 
         {
@@ -296,7 +296,26 @@ function createRoom()
             indate:"",
             outdate:"",
             mealorder:"",
-            Price:""
+            Price:"",
+            roomStatus:"",
+            roomType:"King"
+        };
+        
+        roomlist.push(RoomInfo)
+        localStorage.setItem("roomlist",JSON.stringify(roomlist))
+    }
+    for (var i = 0; i < 3; i++)
+    {
+        var RoomInfo = 
+        {
+            UserId:"",
+            roomId:"r"+(roomlist.length+1),
+            indate:"",
+            outdate:"",
+            mealorder:"",
+            Price:"",
+            roomStatus:"",
+            roomType:"Double"
         };
         
         roomlist.push(RoomInfo)

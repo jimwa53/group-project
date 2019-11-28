@@ -184,6 +184,9 @@ function layout5() {
 
 
 function checkined(roomid) {
+    var checkInDate = document.getElementById("checkin");
+    var checkOutDate = document.getElementById("checkout");
+
 	if (sessionStorage.getItem("logineduser")==null) {
 		var islogined = confirm("Please sign in first!");
 		if (islogined==true) {
@@ -206,8 +209,9 @@ function checkined(roomid) {
 					roomlist[indexofnum] = {
 												UserId:signinusername,
 												roomId:rm,
-												indate:"",
-												outdate:""
+												indate:checkInDate.value,
+												outdate:checkOutDate.value,
+
 											}
 					localStorage.setItem("roomlist",JSON.stringify(roomlist));
 				}

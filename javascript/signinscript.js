@@ -22,6 +22,7 @@ function submitin(nameInput,passInput) {
 						sessionStorage.setItem("alertsuss","true");
 						return window.history.go(-2);
 					} else {
+						sessionStorage.setItem("alertsuss","true");
 						return window.location.href="customer.html";
 					}
 				}

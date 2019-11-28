@@ -32,6 +32,6 @@ function checkined(roomid) {
                 }
             })
             window.location.href="confirmroom.html";
+       }
     }
-    
 }

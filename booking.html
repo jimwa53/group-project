@@ -14,7 +14,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!-- End of Bootstrap Script -->
 <!--moment Js-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js" tyle="text/javascript"></script>
+<script src="https://momentjs.com/downloads/moment.js" tyle="text/javascript"></script>
 </head>
 
 <body>
@@ -47,21 +47,22 @@
 							<h3 class="text-white p-3">Choose your booking</h3>
 						</div>
 						<div class="col-2">
-							<img src="images/calendar-flat.png"/><label for="checkIn" style="color: white;font-family: Arial, Helvetica, sans-serif;">Check-in</label> 
-							<input type="date" id="checkIn"/>
+							<img src="images/calendar-flat.png"/><label for="checkin" style="color: white;font-family: Arial, Helvetica, sans-serif;">Check-in</label> 
+							<input type="date" id="checkin"/>
 						</div>
-						<div class="col-2" id="checkout">
+						<div class="col-2">
 							<img src="images/calendar-flat.png"/><label for="checkout" style="color: white;font-family: Arial, Helvetica, sans-serif;">Check-out</label>
 							<input type="date" id="checkout"/>
 						</div>
 						<div class="col-2 p-3">
-							<button type="button" class="btn btn-primary">Search</button>
+							<button type="button" class="btn btn-primary" id="searchTime" onclick="searchBooking()">Search</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<div id="bookinglist"></div>
 	<p>
 		<div class="container-fluid">
 			<div class="row">
@@ -69,11 +70,11 @@
 					<img src="images/layout.jpg" width="1089" height="688" usemap="#layout">
 					<map name="layout">
 
-						<area class="layout1" shape="rect" coords="254,21,646,309" href="#ro1" onClick="layout1()">
-						<area class="layout2" shape="rect" coords="653,22,1070,309" href="#ro2" onClick="layout2()">
-						<area class="layout3" shape="rect" coords="15,444,361,669" href="#ro3" onClick="layout3()">
-						<area class="layout4" shape="rect" coords="365,445,722,669" href="#ro4" onClick="layout4()">
-						<area class="layout5" shape="rect" coords="726,448,1068,670" href="#ro5" onClick="layout5()">
+						<area class="layout1" id="1" shape="rect" coords="254,21,646,309" href="#" onclick="layout1();bookcheck(this.id);">
+						<area class="layout2" id="2" shape="rect" coords="653,22,1070,309" href="#" onclick="layout2();bookcheck(this.id);">
+						<area class="layout3" id="3" shape="rect" coords="15,444,361,669" href="#" onclick="layout3();bookcheck(this.id);">
+						<area class="layout4" id="4" shape="rect" coords="365,445,722,669" href="#" onclick="layout4();bookcheck(this.id);">
+						<area class="layout5" id="5" shape="rect" coords="726,448,1068,670" href="#" onclick="layout5();bookcheck(this.id);">
 
 					</map>
 				</div>

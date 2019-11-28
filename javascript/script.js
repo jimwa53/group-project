@@ -10,32 +10,46 @@ if (localStorage.getItem("roomlist") == null) {
 				UserId:"",
 				roomId:"r1",
 				indate:"",
-				outdate:""
+                outdate:"",
+                mealorder:"",
+                Price:0
 			},
 			{
 				UserId:"",
 				roomId:"r2",
 				indate:"",
-				outdate:""
+                outdate:"",
+                mealorder:"",
+                Price:0
 			},
 			{
 				UserId:"",
 				roomId:"r3",
 				indate:"",
-				outdate:""
+                outdate:"",
+                mealorder:"",
+                Price:0
 			},
 			{
 				UserId:"",
 				roomId:"r4",
 				indate:"",
-				outdate:""
+                outdate:"",
+                mealorder:"",
+                Price:0
 			},
 			{
 				UserId:"",
 				roomId:"r5",
 				indate:"",
+<<<<<<< HEAD
+                outdate:"",
+                mealorder:"",
+                Price:0
+=======
 				outdate:""
 
+>>>>>>> 6a09cb74425e3b9c3ea95847494412a75c2149aa
 			}
 		];
 		localStorage.setItem("roomlist",JSON.stringify(roomlist));
@@ -144,12 +158,19 @@ if (localStorage.getItem("menulist") == null)
 }
 
 
-	var signinusername = sessionStorage.getItem("logineduser");
+	
 if (sessionStorage.getItem("logineduser")==null) {
 	document.getElementById("customer").innerHTML = "<a href='signin.html'>Sign In</a><a href='signup.html' style='margin-left: 10px;''>Sign Up</a>"
+<<<<<<< HEAD
+} else
+{
+    var signinusername = sessionStorage.getItem("logineduser"); 
+	$("customer").append(signinusername) ;
+=======
 } else if (signinusername==signinusername){
 
 	document.getElementById("customer").innerHTML = signinusername + "<a onclick='signout()' style='cursor:pointer;'> Sign Out</a>";
+>>>>>>> 6a09cb74425e3b9c3ea95847494412a75c2149aa
 }
 
 
@@ -205,8 +226,14 @@ function checkined(roomid) {
 												UserId:signinusername,
 												roomId:rm,
 												indate:checkInDate.value,
+<<<<<<< HEAD
+                                                outdate:checkOutDate.value,
+                                                mealorder:"",
+                                                Price:""
+=======
 												outdate:checkOutDate.value,
 
+>>>>>>> 6a09cb74425e3b9c3ea95847494412a75c2149aa
 											}
 					localStorage.setItem("roomlist",JSON.stringify(roomlist));
 				}

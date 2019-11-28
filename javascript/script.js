@@ -5,31 +5,41 @@ if (localStorage.getItem("roomlist") == null) {
 				UserId:"",
 				roomId:"r1",
 				indate:"",
-				outdate:""
+                outdate:"",
+                mealordered:"",
+                payment:""
 			},
 			{
 				UserId:"",
 				roomId:"r2",
 				indate:"",
-				outdate:""
+                outdate:"",
+                mealordered:"",
+                payment:""
 			},
 			{
 				UserId:"",
 				roomId:"r3",
 				indate:"",
-				outdate:""
+                outdate:"",
+                mealordered:"",
+                payment:""
 			},
 			{
 				UserId:"",
 				roomId:"r4",
 				indate:"",
-				outdate:""
+				outdate:"",
+                mealordered:"",
+                payment:""
 			},
 			{
 				UserId:"",
 				roomId:"r5",
 				indate:"",
-				outdate:""
+				outdate:"",
+                mealordered:"",
+                payment:""
 			}
 		];
 		localStorage.setItem("roomlist",JSON.stringify(roomlist));
@@ -147,9 +157,9 @@ if (sessionStorage.getItem("logineduser")==null) {
 
 
 var room1 = 
-	"<img src=\"images/room1.jpg\" style=\"width:50%\"><br><b><span id='r1' name ='room1'>Room1</span> HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p><button onClick=checkined('r1')>Book now!</button>";
+	"<img src=\"images/room1.jpg\" style=\"width:50%\" id='sectiona'><br><b><span id='r1' name ='room1'>Room1</span> HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p><button onClick=checkined('r1')>Book now!</button>";
 var room2 = 
-	"<img src=\"images/room2.jpg\" style=\"width:50%\"><br><b><span id='r2' name ='room2'>Room2</span> HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p><button onClick=checkined('r2')>Book now!</button>";
+	"<img src=\"images/room2.jpg\" style=\"width:50%\" id='sectionb'><br><b><span id='r2' name ='room2'>Room2</span> HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p><button onClick=checkined('r2')>Book now!</button>";
 var room3 = 
 	"<img src=\"images/room3.jpg\" style=\"width:50%\"><br><b><span id='r3' name ='room3'>Room3</span> HK$ 500/day</b><p>Modern and elegant, the Suite has been geared to accommodate the demand of business travellers who are looking for space and comfort. The Suite is equipped with bespoke facilities including LED TV, bathrobe and iron / ironing board completing the home away from home experience. Mini-bar and in-room coffee machine are also available for enjoyment.</p><p>Some of the Suites are located on higher floors and command a panoramic view of the cityscape and the Kai Tak Cruise Terminal. Adding to the impressive space are floor-to-ceiling windows which allow ample natural light.</p><p><b>No. of rooms: 24 Room Size (Sq.m.): 39</b></p><button onClick=checkined('r3')>Book now!</button>";
 var room4 = 

@@ -184,7 +184,18 @@ function layout5() {
 
 
 function checkined(roomid) {
-	
+    date1 = moment($("#checkin").val(),"YYYY-MM-DD");
+    date2 = moment($("#checkout").val(),"YYYY-MM-DD");
+	var timeover;
+	function compare(dateTimeA, dateTimeB) {
+	if (date1 < date2) {
+		return timeover = 1;
+	} else if (date1 > date2) {
+		return timeover = -1;
+	} else {
+		return timeover = 0;
+	}
+	}
 	if (sessionStorage.getItem("logineduser")==null) {
 		var islogined = confirm("Please sign in first!");
 		if (islogined==true) {
@@ -193,7 +204,9 @@ function checkined(roomid) {
 		}
 	} else if(checkInDate.value == "" || checkOutDate.value == ""){
 		return alert("Please choose you booking date");
-	}else{
+	}else if(compare($("#checkin").val(),$("#checkout").val()) == -1){
+		alert("The checkout day should be greater than "+$("#checkin").val());
+	} else {
 		var sure = confirm("Sure?");
 		if (sure==true) {
 			rm = document.getElementById(roomid).id;

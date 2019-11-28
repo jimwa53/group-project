@@ -18,7 +18,6 @@ if (localStorage.getItem("userlist") == null)
     var userlist = JSON.parse(localStorage.getItem("userlist"));
 }
 
-
 if (localStorage.getItem("menulist") == null)
 {
     var menulist = 
@@ -102,8 +101,11 @@ if (localStorage.getItem("menulist") == null)
 
 
 var signinusername = sessionStorage.getItem("logineduser");
-console.log(signinusername);
-document.getElementById("customer").innerHTML = signinusername;
+if (sessionStorage.getItem("logineduser")==null) {
+	document.getElementById("customer").innerHTML = "<a href='signin.html'>Sign In</a><a href='signup.html' style='margin-left: 10px;''>Sign Up</a>"
+} else if (signinusername==signinusername){
+	document.getElementById("customer").innerHTML = signinusername;
+}
 
 
 var room1 = 

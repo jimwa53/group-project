@@ -18,10 +18,7 @@ if (localStorage.getItem("userlist") == null)
     var userlist = JSON.parse(localStorage.getItem("userlist"));
 }
 
-
-if (localStorage.getItem("menulist") == null)
 {
-<<<<<<< HEAD
     var signinusername = sessionStorage.getItem("logineduser");
     console.log(signinusername);
     document.getElementById("customer").innerHTML = signinusername;
@@ -75,6 +72,8 @@ switch(alertlogined) {
 		alert("Welcome back "+signinusername);
 		sessionStorage.removeItem("alertsuss");
 
+if (localStorage.getItem("menulist") == null)
+{
     var menulist = 
     [
         {
@@ -151,6 +150,5 @@ switch(alertlogined) {
     localStorage.setItem("menulist",JSON.stringify(menulist))
 }else
 {     
-    var menulist = JSON.parse(localStorage.getItem("menulist"));
->>>>>>> origin/master
+    menulist = JSON.parse(localStorage.getItem("menulist"));
 }

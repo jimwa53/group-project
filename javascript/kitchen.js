@@ -1,5 +1,3 @@
-var editingUser;
-
 var menulist = JSON.parse(localStorage.getItem("menulist"));
 displayMenulist();
 
@@ -22,7 +20,7 @@ function displayMenulist()
                     "<p class=\"card-text\">price: $"+price+"</p>"+
                     "<p class=\"card-text\"><b> available: "+onMenu+"</b></p>"+
                     "<button type=\"button\""+"onclick=\"editMenu("+mealId+")\""+"class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#Menu\">"+
-                        "Put on menu"+
+                        "Change menu"+
                     "</button>"+
                 "</div>"+
             "</div>"
@@ -40,129 +38,31 @@ function displayMenulist()
 
 function editMenu(inputId)
 {
-    console.log(menulist[inputId].onMenu);
-    if (menulist[inputId].onMenu)
-        menulist[inputId].onMenu = false;
-    else
-        menulist[inputId].onMenu = true;
-    displayMenulist()
-}
-
-
-function saveEditUser()
-{ 
-    var arrayposition = editingUser - 1;
-    var uploadIsReady = isEmpty()
-    
-    if (uploadIsReady == true)
+    console.log(menulist[inputId].OnMenu)
+    if (menulist[inputId].OnMenu)
     {
-        userlist[arrayposition] = 
+        menulist[inputId] = 
         {
-            UserId:editingUser,
-            FirstName:firstName.value,
-            LastName:lastName.value,               
-            Gender:gender.value,  
-            Email:email.value,
-            UserType:userType.value,
-            UserName:userName.value,
-            UserPassword:userPassword.value
+            MealId:menulist[inputId].MealId,
+            MealName:menulist[inputId].MealName,
+            MealImg:menulist[inputId].MealImg,          
+            Price:menulist[inputId].Price,
+            OnMenu:false
         }
-        console.log(userlist);
-        localStorage.setItem("userlist",JSON.stringify(userlist));
-        $("#confirmAddUser").attr('data-dismiss',"modal");
-        window.location.reload();
-    }
-}
-
-function isEmpty()
-{
-    var check = /^[a-zA-Z0-9]*$/;
-    var emailcheck = /^([a-z0-9\-_])*@([a-z0-9\.\-])*\.[a-z*]*(\.[a-z]*)*$/;
-    var resultfirstName = check.test(firstName.value);
-    var resultlastName = check.test(lastName.value);
-	var resultUserName = check.test(userName.value);
-	var resultpass = check.test(userPassword.value);
-    var resultemail = emailcheck.test(email.value);
-    
-    console.log(resultfirstName)
-    if (firstName.value == "" && !resultfirstName)
-    {
-        return alert("Please input First name")
-    }
-    else if (!resultfirstName)
-    {
-        return alert("First name allow only alphanumeric characters!")
-    }
-    else if (lastName.value.length == 0)
-    {
-        return alert("Please input Last name")
-    }
-    else if (!resultlastName)
-    {
-        return alert("Last name allow only alphanumeric characters!")
-    }
-    else if (gender.value == "")
-    {
-        return alert("Please select gender")
-    }else if (email.value.length == 0)
-    {
-        return alert("Please input Email")
-    }
-    else if (!resultemail)
-    {
-        alert("Please enter correct Email!")
-    }
-    else if (userType.value =="")
-    {
-        return alert("Please select User Type")
-    }
-    else if (userName.value.length == 0)
-    {
-        return alert("Please input User Name")
-    }
-    else if (!resultUserName)
-    {
-        return alert("User name allow only alphanumeric characters!")
-    }
-    else if (userPassword.value.length == 0)
-    {
-        return alert("Please input User Password")
-    }
-    else if (!resultpass)
-    {
-        return alert("Password name allow only alphanumeric characters!")
     }
     else
     {
-        return true;
-    }
-}
-
-function clearData()
-{
-    firstName.value = "";
-    lastName.value = "";
-    gender.value = "";
-    email.value=""
-    userType.value = "";
-    userName.value = "";
-    userPassword.value = "";
-}
-
-function checkUsername()
-{
-    $("#username").removeClass()
-    $("#confirmAddUser").removeAttr("disabled")
-    userlist.forEach(function(User){
-        if(userName.value == User.UserName)
+        menulist[inputId] = 
         {
-            $("#username").addClass("border border-danger")
-            userName.value = "";
-            $("#confirmAddUser").attr("disabled","true")
-            return alert("The User name has been used")
-        }else
-        {
-            $("#username").addClass("border border-success") 
+            MealId:menulist[inputId].MealId,
+            MealName:menulist[inputId].MealName,
+            MealImg:menulist[inputId].MealImg,          
+            Price:menulist[inputId].Price,
+            OnMenu:true
         }
-    })
+    }
+    console.log(menulist);
+    localStorage.setItem("menulist",JSON.stringify(menulist));
+    $("#confirmAddUser").attr('data-dismiss',"modal");
+    window.location.reload();
 }

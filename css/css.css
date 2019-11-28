@@ -40,18 +40,6 @@ body {
 	transform: translate(-50%,-50%);
 }
 
-
-img[usemap] {
-	border: none;
-	height: auto;
-	max-width: 100%;
-	width: auto;
-}
-
-.layout1:active {
-	
-}
-
 .bg-img {
 	/* The image used */
 	background-image: url("img_nature.jpg");
@@ -71,4 +59,11 @@ img[usemap] {
 	max-width: 300px !important;
 	padding: 16px !important;
 	background-color: white !important;
+  }
 
+img[usemap] {
+	border: none;
+	height: auto;
+	max-width: 100%;
+	width: auto;
+}

@@ -1,5 +1,7 @@
 var menulist = JSON.parse(localStorage.getItem("menulist"));
 displayMenulist();
+var orderlist = JSON.parse(localStorage.getItem("roomlist"));
+displayOrderlist();
 
 function displayMenulist()
 {
@@ -18,7 +20,7 @@ function displayMenulist()
                 "<div class=\"card-body\">"+
                     "<h4 class=\"card-title\">"+mealName+"</h4>"+
                     "<p class=\"card-text\">price: $"+price+"</p>"+
-                    "<p class=\"card-text\"><b> available: "+onMenu+"</b></p>"+
+                    "<p class=\"card-text\"><b> On Menu: "+onMenu+"</b></p>"+
                     "<button type=\"button\""+"onclick=\"editMenu("+mealId+")\""+"class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#Menu\">"+
                         "Change menu"+
                     "</button>"+
@@ -27,10 +29,41 @@ function displayMenulist()
         "</div>"
         if (onMenu)
         {
-            $("#customerTitle").after(htmlContent);
+            $("#menucard").after(htmlContent);
         }else
         {
-            $("#createButton").before(htmlContent);
+            $("#mealcard").before(htmlContent);
+        }
+    })
+}
+
+function displayOrderlist()
+{
+    orderlist.forEach(function(Order){
+        var mealOrderedName = Order.mealordered.MealName;
+        var room = Order.roomId;
+        var mealPhoto;
+        mealPhoto = "images/menu/"+Order.mealordered.MealImg;
+
+        var htmlContent =
+        "<div class=\"col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2\">"+
+            "<div class=\"card\">"+
+                "<img class=\"card-img-top\" src=\""+mealPhoto+"\" alt=\"Card image\" style=\"height:150px\">"+
+                "<div class=\"card-body\">"+
+                    "<h4 class=\"card-title\">"+mealOrderedName+"</h4>"+
+                    "<p class=\"card-text\"><b> Order from: "+room+"</b></p>"+
+                    "<button type=\"button\""+"onclick=\"editMenu("+mealId+")\""+"class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#Menu\">"+
+                        "Change menu"+
+                    "</button>"+
+                "</div>"+
+            "</div>"
+        "</div>"
+        if (onMenu)
+        {
+            $("#menucard").after(htmlContent);
+        }else
+        {
+            $("#mealcard").before(htmlContent);
         }
     })
 }
@@ -63,6 +96,5 @@ function editMenu(inputId)
     }
     console.log(menulist);
     localStorage.setItem("menulist",JSON.stringify(menulist));
-    $("#confirmAddUser").attr('data-dismiss',"modal");
     window.location.reload();
 }

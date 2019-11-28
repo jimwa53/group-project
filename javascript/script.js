@@ -10,32 +10,51 @@ if (localStorage.getItem("roomlist") == null) {
 				UserId:"",
 				roomId:"r1",
 				indate:"",
-				outdate:""
+				outdate:"",
+				mealorder:"",
+				Price:"",
+				roomStatus:"",
+				roomType:"King"
 			},
 			{
 				UserId:"",
 				roomId:"r2",
 				indate:"",
-				outdate:""
+				outdate:"",
+				mealorder:"",
+				Price:"",
+				roomStatus:"",
+				roomType:"King"
 			},
 			{
 				UserId:"",
 				roomId:"r3",
 				indate:"",
-				outdate:""
+				outdate:"",
+				mealorder:"",
+				Price:"",
+				RoomStatus:"",
+				roomType:"Double"
 			},
 			{
 				UserId:"",
 				roomId:"r4",
 				indate:"",
-				outdate:""
+				outdate:"",
+				mealorder:"",
+				Price:"",
+				RoomStatus:"",
+				roomType:"Double"
 			},
 			{
 				UserId:"",
 				roomId:"r5",
 				indate:"",
-				outdate:""
-
+				outdate:"",
+				mealorder:"",
+				Price:"",
+				RoomStatus:"",
+				roomType:"Double"
 			}
 		];
 		localStorage.setItem("roomlist",JSON.stringify(roomlist));

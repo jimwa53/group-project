@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="Five Demands Hotel,Hong Kong,Hotel,Hotel booking,Hotel reservation,online booking" />
+    <meta name="description" content="Five Demands Hotel is the Best for Your Choice! Find Your Ideal Room with Five Demands Hotel!" />
+    <meta name="robots" content="index,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="images/hotel_icon.ico" type="image/x-icon" />
+    <title>Five Demands Hotel</title>
+    <link rel="stylesheet" href="css/css.css" type="text/css"/>
+    <!-- Start of Bootstrap Script -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="javascript/script.js"></script>
+    <!-- End of Bootstrap Script -->
+</head>
+<body>
+    <!-- Start of Bootstrap Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #e3f2fd;">
+		<a class="navbar-brand" href="index.html"><img src="images/wine.webp" alt="icon" width="30px" height="20px"><img src="images/inside_icon.png" alt="icon" width="200px" height="23px"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+          <a class="nav-link" href="#" onclick="setRoomAttr()" data-toggle="modal" data-target="#Room">Rooms</a>
+        </li>
+			</ul>
+			<span class="navbar-text">
+				<a href="signin.html">Sign In</a>
+        <a href="signup.html" style="margin-left: 10px;">Sign Up</a>
+			</span>
+		</div>
+	</nav>
+    <!-- End of Bootstrap Navbar -->
+    
+    <div class="container">
+        <h2>Staff List</h2>
+        <div class="row" id="profileList">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-auto mb-auto" id="createButton">
+                <img src="images/addButton.png" onclick="setCreateAttr()" data-toggle="modal" data-target="#User">
+            </div>
+          <div class="col-12" id="customerTitle"><h2>Customer List</h2></div>
+        </div>
+    </div>
+
+      <!--User Modal -->
+    <div class="modal fade" id="User" tabindex="-1" role="dialog" aria-labelledby="UserLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="UserLabel">User</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+             <!--personal information input part-->
+             <ul>
+
+                <!--first name section-->
+                <li>
+                    <label for="firstname">First Name: </label>
+                    <input type="text" name="fname" id="firstname" placeholder="Tai Man" required>
+                </li><br/>
+
+                <!--last name section-->
+                <li>
+                    <label for="lastname">Last Name: </label>
+                    <input type="text" name="lname" id="lastname" placeholder="Chan" required>
+                </li><br/>
+
+                <!--gender section-->
+                <li>
+                    Gender:
+                    <!--dropdown option for gender-->
+                    <select name="Gender" id="gender" required>
+                      <option disabled selected hidden></option>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
+                </li><br/>
+
+                <li>
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" placeholder="example@email.com" required>
+                </li></br>
+
+                <li>
+                  Type:
+                  <!--dropdown option for User Type-->
+                  <select name="Type" id="staffType" required>
+                      <option disabled selected hidden></option>
+                      <option>Housekeeping Staff</option>
+                      <option>Kitchen Staff</option>
+                      <option>Hotel Manager</option>
+                      <option disabled selected hidden>customer</option>
+                  </select>
+                </li><br>
+                <label for="user">Username: </label>
+                <input type="input" name="user" id="username" required><br>
+                <label for="password">Password: </label>
+                <input type="password" name="passsword" id="password" required>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="clearData()" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="confirmAddUser">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Room Modal -->
+    <div class="modal fade" id="Room" tabindex="-1" role="dialog" aria-labelledby="RoomLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="RoomLabel">Room</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+             <!--personal information input part-->
+             <ul>
+                <li id=totalRoom>
+                  
+                </li></br>
+                <li id=roomStatus>
+                  
+                  </li></br>
+
+                <li>
+                  Action:
+                  <!--dropdown option for User Type-->
+                  <select name="Type" id="actionType" required>
+                      <option disabled selected hidden></option>
+                      <option>Add a floor</option>
+                  </select>
+                </li><br>
+                
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="clearData()" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="confirmAddRoom">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="javascript/admin.js" type="text/javascript"></script>
+</body>
+</html>

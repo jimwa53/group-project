@@ -119,7 +119,6 @@ function addUserList(User)
         $("#customerTitle").after(htmlContent);
     }else
     {
-        console.log(htmlContent)
         $("#createButton").before(htmlContent);
     }
 }

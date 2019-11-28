@@ -1,3 +1,8 @@
+function signout() {
+	sessionStorage.removeItem("logineduser");
+	window.location.reload();
+}
+
 if (localStorage.getItem("roomlist") == null) {
 	var roomlist = 
 		[
@@ -142,7 +147,7 @@ if (localStorage.getItem("menulist") == null)
 if (sessionStorage.getItem("logineduser")==null) {
 	document.getElementById("customer").innerHTML = "<a href='signin.html'>Sign In</a><a href='signup.html' style='margin-left: 10px;''>Sign Up</a>"
 } else if (signinusername==signinusername){
-	document.getElementById("customer").innerHTML = signinusername;
+	document.getElementById("customer").innerHTML = signinusername + "<a onclick='signout()' style='cursor:pointer;'> Sign Out</a>";
 }
 
 

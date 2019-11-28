@@ -13,6 +13,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!-- End of Bootstrap Script -->
+<!--moment Js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js" tyle="text/javascript"></script>
 </head>
 
 <body>
@@ -36,6 +38,30 @@
 		</div>
 	</nav>
 	<!-- End of Bootstrap Navbar -->
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="jumbotron p-2 mt-2 bg-dark">
+					<div class="row">
+						<div class="col-6" id="userName">
+							<h3 class="text-white p-3">Choose your booking</h3>
+						</div>
+						<div class="col-2">
+							<img src="images/calendar-flat.png"/><label for="checkIn" style="color: white;font-family: Arial, Helvetica, sans-serif;">Check-in</label> 
+							<input type="date" id="checkIn"/>
+						</div>
+						<div class="col-2" id="checkout">
+							<img src="images/calendar-flat.png"/><label for="checkout" style="color: white;font-family: Arial, Helvetica, sans-serif;">Check-out</label>
+							<input type="date" id="checkout"/>
+						</div>
+						<div class="col-2 p-3">
+							<button type="button" class="btn btn-primary">Search</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<p>
 		<div class="container-fluid">
 			<div class="row">
@@ -56,6 +82,7 @@
 		</div>
 	</p>
 <script type="text/javascript" src="javascript/script.js"></script>
+<script type="text/javascript" src="javascript/booking.js"></script>
 <script src="javascript/jquery.rwdImageMaps.js"></script>
 <script src="javascript/jquery.rwdImageMaps.min.js"></script>
 <script>
